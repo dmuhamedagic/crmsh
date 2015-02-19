@@ -1832,6 +1832,21 @@ class CibSimpleConstraint(CibObject):
     def repr_gv(self, gv_obj, from_grp=False):
         '''
         What to do with the collocation constraint?
+
+        It would be great if we could do the following:
+
+        - draw orders in one color (say, blue)
+        - draw collocations in another color (say, red)
+        - teach Gv to combine orders and collocations into a
+          single edge of yet another color (say, green); the
+          combined constraints must match the group semantics, if
+          not then they should be drawn separately; this would be
+          useful in discovering peculiar (and perhaps wrong)
+          resource relations
+
+        This means that we'd also need more gv style preferences
+        in constants.graph, i.e. for orders, collocations, and
+        combined (we'd need a name for that one too).
         '''
         if self.obj_type != "order":
             return
